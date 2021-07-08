@@ -20,7 +20,8 @@ import { SuccessAlertComponent } from './success-alert/success-alert.component';
   imports: [
     BrowserModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

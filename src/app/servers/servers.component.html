@@ -1,2 +1,33 @@
+<label>Server Name</label>
+
+<!-- One-way data binding -->
+<!-- <input 
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"> -->
+
+<!-- Two way data binding -->
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="serverName">
+
+<!-- <p>{{ serverName }}</p> -->
+
+<!-- This is bootstrap, not angular-specific -->
+<button 
+  class="btn btn-primary" 
+  [disabled]="!allowNewServer" 
+  (click)="onCreateServer()">Add Server</button>
+
+<!-- These two lines below resolve to the same thing -->
+<!-- <p> {{ allowNewServer }}</p>
+<p [innerText]="allowNewServer"></p> -->
+<p>{{ serverCreationStatus }}</p>
+
 <app-server></app-server>
-<app-server></app-server>
+
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="username">
