@@ -14,13 +14,21 @@ export class ServersComponent implements OnInit {
   allowNewServer : boolean = false;
   serverCreationStatus = 'No server was created!';
   serverName = 'Test Server';
-  username = '';
+  username : string = '';
+  allowUsernameReset : boolean;
+  serverCreated = false;
+  servers = ['Testserver', 'Testserver 2'];
+  paragraphVisible = false;
+  toggleDisplayCounter = [];
+  counterIndex = 0;
+  
 
+  // The constructor is a method executed at the point of time the component is created in Angular
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
     }, 2000);
-   }
+  }
 
   ngOnInit(): void {
   }
@@ -28,6 +36,8 @@ export class ServersComponent implements OnInit {
   onCreateServer() {
     // console.log('inside the onCreateServer method!');
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
   }
 
   onUpdateServerName(event: Event) {
@@ -35,4 +45,16 @@ export class ServersComponent implements OnInit {
     // console.log(event);
     this.serverName = (<HTMLInputElement>event.target).value;
   }
+
+  resetUsername() {
+    console.log('Inside the resetUsername method!');
+    this.username = '';
+  }
+  
+  toggleParagraph() {
+    this.paragraphVisible = !this.paragraphVisible;
+    this.toggleDisplayCounter.push(this.counterIndex++);
+    console.log(this.toggleDisplayCounter);
+  }
+
 }
